@@ -1,5 +1,11 @@
-export default (state = null, action) => {
-  console.log('Recieved', action);
+import { FETCH_WEATHER } from '../actions';
+
+export default (state = [], action) => {
+  switch(action.type) {
+    case FETCH_WEATHER:
+      return [ action.payload.data, ...state ];
+  }
+
   return state;
 };
 
